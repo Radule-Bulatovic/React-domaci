@@ -1,0 +1,95 @@
+body {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='1440' preserveAspectRatio='none' viewBox='0 0 1440 1440'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1025%26quot%3b)' fill='none'%3e%3crect width='1440' height='1440' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M0%2c719.794C136.121%2c702.419%2c169.719%2c513.822%2c270.047%2c420.201C346.784%2c348.594%2c475.661%2c332.6%2c517.898%2c236.516C560.071%2c140.578%2c488.185%2c34.966%2c485.44%2c-69.796C482.195%2c-193.614%2c579.581%2c-338.35%2c500.34%2c-433.547C421.556%2c-528.195%2c258.058%2c-442.283%2c141.736%2c-482.709C15.872%2c-526.451%2c-65.514%2c-682.457%2c-198.627%2c-676.462C-332.418%2c-670.437%2c-452.124%2c-566.707%2c-522.551%2c-452.793C-589.451%2c-344.583%2c-557.715%2c-208.367%2c-566.49%2c-81.449C-574.531%2c34.859%2c-617.994%2c154.091%2c-571.912%2c261.183C-525.497%2c369.048%2c-409.922%2c421.84%2c-318.311%2c495.302C-214.925%2c578.206%2c-131.454%2c736.574%2c0%2c719.794' fill='%230d2641'%3e%3c/path%3e%3cpath d='M1440 2054.125C1553.095 2071.753 1655.424 1986.6799999999998 1748.657 1920.28 1838.344 1856.405 1916.187 1778.44 1965.396 1679.94 2015.799 1579.05 2035.2350000000001 1467.722 2031.049 1355.02 2026.5 1232.555 2015.591 1103.173 1940.38 1006.418 1863.679 907.746 1744.061 842.792 1620.159 826.433 1503.54 811.035 1400.894 889.376 1287.373 920.199 1170.78 951.856 1035.412 931.27 943.831 1010.067 848.53 1092.064 779.133 1221.669 791.588 1346.772 803.786 1469.288 928.588 1542.585 1006.352 1638.041 1063.518 1708.213 1122.241 1770.156 1187.55 1832.82 1269.967 1911.899 1327.144 2036.534 1440 2054.125' fill='%230f2e4d'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1025'%3e%3crect width='1440' height='1440' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  overflow: hidden;
+}
+
+.moves-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-div {
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.dissapear {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+button {
+  background: #242424;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  width: 30%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid white;
+}
+
+button:hover {
+  background: black;
+  color: white;
+}
+
+.card-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: calc(80vh / 3 - 20px);
+  width: 100%;
+}
+
+.card {
+  position: absolute;
+  height: calc(80vh / 3 - 20px);
+  object-fit: contain;
+  border-radius: 5px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform 500ms;
+  background-color: transparent;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.back-flip {
+  transform: rotateY(180deg);
+}
+
+.front-flip {
+  transform: rotateY(360deg);
+}
+
+.score-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
