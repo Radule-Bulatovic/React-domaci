@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./card.module.css";
-import CardBack from "../../images/Back.png";
+import CardBack from "../../../images/Back.png";
 
 function Card(props) {
   return (
