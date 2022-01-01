@@ -1,7 +1,7 @@
 import { Component } from "react";
-import "./styles.css";
-import Card from "./Card/Card";
-import Menu from "./Menu/Menu";
+import styles from "./styles.module.css";
+import Menu from "./Components/Menu/Menu";
+import Cards from "./Components/Cards/Cards"
 
 export default class App extends Component {
   state = {
@@ -11,7 +11,7 @@ export default class App extends Component {
     found: [],
     turn: null,
     score: 0,
-    isPlayed: false
+    isWinner: null
   };
 
   newGame = async () => {
@@ -22,11 +22,9 @@ export default class App extends Component {
       turn: 5,
       score: 0,
       found: [],
-      isPlayed: true
     });
     fetch(
-      `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=6&offset=${
-        Math.floor(Math.random() * 1000) * 6
+      `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=6&offset=${Math.floor(Math.random() * 1000) * 6
       }`
     )
       .then((response) => response.json())
@@ -57,7 +55,8 @@ export default class App extends Component {
         await this.setState((prevState) => ({
           found: [...prevState.found, ...this.state.fliped],
           fliped: [],
-          score: prevState.score + 1
+          score: prevState.score + 1,
+          isWinner: [...prevState.found, ...this.state.fliped].length === 12 ? true : false
         }));
       } else {
         this.setState((prev) => ({ turn: prev.turn - 1 }));
@@ -72,42 +71,30 @@ export default class App extends Component {
   render() {
     let menu =
       this.state.cards.length === 0 ||
-      this.state.turn === 0 ||
-      this.state.found.length === 12 ? (
+        this.state.turn === 0 ||
+        this.state.found.length === 12 ? (
         <Menu
           click={this.newGame}
-          isPlayed={this.state.isPlayed}
-          isWinner={this.state.found.length === 12 ? true : false}
+          isWinner={this.state.isWinner}
         />
       ) : null;
 
-    let content = this.state.cards.length === 0 ? null : (
+    let content = (this.state.cards.length === 0)? null : (
       <div>
-        <div className="moves-div">
+        <div className={styles.movesDiv}>
           <h1>
             Moves left: <span>{this.state.turn}</span>
           </h1>
         </div>
-        <div className="App">
-          {this.state.cards &&
-            this.state.found !== 12 &&
-            this.state.cards.map((e, i) => (
-              <Card
-                click={() => {
-                  this.toogleFlip(i);
-                }}
-                flip={
-                  this.state.fliped.includes(i) ||
-                  this.state.found.includes(i)
-                    ? 1
-                    : 0
-                }
-                card={e}
-                key={i}
-              />
-            ))}
+        <div className={styles.App}>
+          <Cards
+            flip={this.state.flip}
+            fliped={this.state.fliped}
+            found={this.state.found}
+            click={this.toogleFlip}
+            cards={this.state.cards} />
         </div>
-        <div className="score-div">Score: {this.state.score}</div>
+        <div className={styles.scoreDiv}>Score: {this.state.score}</div>
       </div>
     )
 

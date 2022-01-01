@@ -1,0 +1,31 @@
+.cardDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: calc(80vh / 3 - 20px);
+    width: 100%;
+}
+
+.card {
+    position: absolute;
+    height: calc(80vh / 3 - 20px);
+    object-fit: contain;
+    border-radius: 5px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform 500ms;
+    background-color: transparent;
+}
+
+.front {
+    transform: rotateY(180deg);
+}
+
+.backFlip {
+    transform: rotateY(180deg);
+}
+
+.frontFlip {
+    transform: rotateY(360deg);
+}

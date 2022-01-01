@@ -1,0 +1,27 @@
+.container {
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    background: #242424;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    width: 30%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+}
+
+.btn:hover {
+    background: black;
+    color: white;
+}

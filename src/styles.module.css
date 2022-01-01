@@ -17,78 +17,13 @@ body {
   overflow: hidden;
 }
 
-.moves-div {
+.movesDiv {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.menu-div {
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-}
-
-.dissapear {
-  opacity: 1;
-  transition: opacity 1000ms;
-}
-
-button {
-  background: #242424;
-  color: white;
-  font-size: 20px;
-  padding: 5px;
-  width: 30%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  border: 1px solid white;
-}
-
-button:hover {
-  background: black;
-  color: white;
-}
-
-.card-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  height: calc(80vh / 3 - 20px);
-  width: 100%;
-}
-
-.card {
-  position: absolute;
-  height: calc(80vh / 3 - 20px);
-  object-fit: contain;
-  border-radius: 5px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transition: transform 500ms;
-  background-color: transparent;
-}
-
-.front {
-  transform: rotateY(180deg);
-}
-
-.back-flip {
-  transform: rotateY(180deg);
-}
-
-.front-flip {
-  transform: rotateY(360deg);
-}
-
-.score-div {
+.scoreDiv {
   display: flex;
   align-items: center;
   justify-content: center;
