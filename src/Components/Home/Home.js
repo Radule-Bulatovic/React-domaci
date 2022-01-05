@@ -1,28 +1,28 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import HomeCard from './HomeCard/HomeCard';
 
 function Home() {
-    let navigate = useNavigate();
+
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetch("https://jsonblob.com/api/jsonBlob/927240457810100224")
+            .then(response => {
+                return response.json();
+            })
+            .then(response => setPosts([...response]))
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
+
+    let cards = posts.map((e, i) => <HomeCard post={e} index={i} key={e.id} />)
 
     return (
         <div className="container">
             <h3 className="center-align">Posts</h3>
             <div className="row">
-
-                
-                <div className="col s4" onClick={() => {navigate(`/post/${'1'}`)}}>
-                    <div className="card small">
-                        <div className="card-image">
-                            <img src="https://materializecss.com/images/sample-1.jpg" />
-                            <span className="card-title">Card Title</span>
-                        </div>
-                        <div className="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-            
-
+                {cards}
             </div>
         </div>
     );
