@@ -2,19 +2,13 @@
 
 ## Form  
 
-Project: 
-  
 Live: 
 
 
 ## Memory game  
-
-Project: https://codesandbox.io/s/yu-gi-oh-memory-j2xck
   
 Live: https://j2xck.csb.app/
 
 ## Blog
-
-Project: 
   
-Live: 
+Live: https://61d59c5d053eb63416767466--elated-boyd-df676f.netlify.app/
